@@ -1,12 +1,12 @@
 /* Prints out the loss and vin of cars that are sold with a negative revenue. */
 CREATE OR REPLACE PROCEDURE LOSS
 AS
-  REVENUE Trade_out.Price_out%TYPE;
+  REVENUE Sell.Price_out%TYPE;
   VINNUM  Cars.Vin%TYPE;
   CURSOR C IS 
-    SELECT O.Price_out - I.Price_in as p, O.Vin
-    FROM Trade_out O JOIN Trade_in I ON O.Vin = I.Vin
-    WHERE O.Price_out IS NOT NULL;
+    SELECT S.Price_out - B.Price_in as p, S.Vin
+    FROM Sell S JOIN Buy B ON S.In_id = B.In_id
+    WHERE S.Price_out IS NOT NULL;
 BEGIN
   OPEN C;
   LOOP
@@ -30,7 +30,7 @@ BEGIN
   LOOP
     FETCH C INTO NEWROW;
     EXIT WHEN(C%NOTFOUND);
-    IF(SYSDATE > SDATE AND SYSDATE < EDATE) THEN
+    IF(NEWROW.DATE > SDATE AND NEWROW.DATE < EDATE) THEN
       DBMS_OUTPUT.PUT_LINE(NEWROW.VIN||' was sold at price of ' ||NEWROW.PRICE_OUT||' by Customer '||NEWROW.B_SSN);
     END IF;
   END LOOP;
