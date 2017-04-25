@@ -21,16 +21,15 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE('New PRICE:'|| price_CHANGE);
 END;
 
-/* List the sales volume of different makes of cars. */
 CREATE OR REPLACE TRIGGER sales_volume
-  AFTER INSERT ON Trade_out
+  AFTER INSERT ON Sell
     FOR EACH ROW
 DECLARE
   make_type Cars.Make%TYPE; 
   num_sale INTEGER; 
 BEGIN 
   SELECT Make, COUNT(*) INTO make_type, num_sale
-  FROM Cars, Trade_out WHERE Trade_out.Vin = Cars.Vin;
+  FROM Cars, Sell WHERE Sell.Vin = Cars.Vin;
   IF (num_sale >5) THEN
   DBMS_OUTPUT.PUT_LINE('The sales volume of' || make_type ||'is Good');
   ELSIF (num_sale>3) THEN
