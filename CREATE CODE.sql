@@ -62,8 +62,8 @@ CREATE TABLE Buy(
 	In_id INT NOT NULL,
 	FOREIGN KEY (Vin) REFERENCES Cars(Vin),
 	FOREIGN KEY (S_ssn)  REFERENCES Sellers(Ssn),
-	Price_in DECIMAL(10,2),
-	Out_date DATE,
+	Price_in DECIMAL(10,2) NOT NULL,
+	In_date DATE NOT NULL,
 	PRIMARY KEY(In_id)
 );
 
