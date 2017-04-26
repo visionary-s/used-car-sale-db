@@ -1,0 +1,41 @@
+body{
+	background-color: white;
+	padding-top: 150px;
+	z-index: 0;
+	height: 1000px;
+}
+
+header {
+	position: fixed;
+	top: 0px; left: 0px; right: 0px;
+	height: 150px;
+	padding: 5px 20px;
+	z-index: 1;
+	color: black;
+
+}
+header h1 {
+	font-size: 70px;
+	font-weight: bolder;
+}
+nav {
+	position: fixed;
+	top: 105px; left: 20px; right: 20px;
+	height: 40px;
+	border: 0px solid black;
+	border-radius: 100px;
+	padding: 3px 5px;
+	background-color: rgba(1,1,1,0.3);
+	z-index: 1;
+
+}
+
+section.main {
+	min-height: 520px;
+/*	border: 1px solid black;*/
+	text-align: center;
+	padding: 10px;
+	margin: 0px 0px;
+	background-color: rgba(255,255,255,0.88);
+
+}
