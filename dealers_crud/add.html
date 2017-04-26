@@ -1,13 +1,44 @@
 <html>
 <head>
 	<title>Enter New data</title>
+	<script src="/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <style type="text/css">
+            .f1{
+            	float: left; 
+            	width: 100%;
+            }
+
+			.t2{ 
+				clear: both;
+				margin: 0px auto;
+				border: 1px solid #c9dae4; 
+				background: #D2E9FF;
+				padding: 20px 20px 20px 20px;
+				font: 15px Arial, Helvetica, sans-serif;
+				color: #666;
+			}
+			.t2 tr td{ 
+				border-bottom: 1px solid #e6e6e6; 
+				padding: 5px 0px 5px 10px; 
+				line-height:22px; 
+				word-break:break-all;
+			}
+			.td1{
+				font: 22px "Trebuchet MS", Arial, Helvetica, sans-serif;
+				display: block;
+				background: #C0E1FF;
+			} 
+        </style>
 </head>
 
 <body>
 	
 
-	<form action="add.php" method="post" name="form1">
-		<table width="25%" border="0">
+	<form action="add.php" method="post" name="form1" class = "f1">
+		<table width="25%" border="0" class = "t2">
+			<tr>
+				<td class = "td1"> Add new: </td>
+			</tr>
 			<tr> 
 				<td>Vin</td>
 				<td><input type="text" name="Vin" required></td>
@@ -43,9 +74,10 @@
 		</table>
 	</form>
 
-	<form action="index.php">
-		<input type="submit" value="Back to Home">
-
+	<form action="index.html">
+		<div align = "center">
+			<input type="submit" value="Back to Home">
+		</div>
 	</form>
 </body>
 </html>
