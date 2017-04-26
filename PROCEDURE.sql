@@ -13,7 +13,7 @@ BEGIN
     FETCH C INTO REVENUE, VINNUM;
     EXIT WHEN (C%NOTFOUND);
     IF (REVENUE < 0) THEN
-      DBMS_OUTPUT.PUT_LINE(' VIN: ' || VINNUM '   Loss :'||REVENUE);
+      DBMS_OUTPUT.PUT_LINE(' VIN: ' || VINNUM ||'   Loss :'||REVENUE);
     END IF;
   END LOOP;
   CLOSE C;
@@ -22,15 +22,15 @@ END;
 /* Given start date and ending date as arguments, the procedure can print out all sale records during this period.*/
 CREATE OR REPLACE PROCEDURE SALE_RECORDS(SDATE IN DATE, EDATE IN DATE)
 AS
-  NEWROW Trade_out%ROWTYPE;
+  NEWROW Sell%ROWTYPE;
   CURSOR C IS
-    SELECT * From Trade_out;
+    SELECT * From Sell;
 BEGIN
   OPEN C;
   LOOP
     FETCH C INTO NEWROW;
     EXIT WHEN(C%NOTFOUND);
-    IF(NEWROW.DATE > SDATE AND NEWROW.DATE < EDATE) THEN
+    IF(NEWROW.OUT_DATE > SDATE AND NEWROW.OUT_DATE < EDATE) THEN
       DBMS_OUTPUT.PUT_LINE(NEWROW.VIN||' was sold at price of ' ||NEWROW.PRICE_OUT||' by Customer '||NEWROW.B_SSN);
     END IF;
   END LOOP;
