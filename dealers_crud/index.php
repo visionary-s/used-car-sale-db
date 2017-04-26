@@ -8,17 +8,67 @@ $result = mysqli_query($mysqli, "SELECT * FROM Cars ORDER BY Vin DESC");
 
 <html>
 <head>	
-	<title>Homepage</title>
+<title>Dealers</title>
+	<script src="/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        .t1
+        {
+            clear: both;
+            border: 1px solid #c9dae4;
+        }
+        .t1 tr th
+        {
+            color: #0d487b;
+            background: #f2f4f8 repeat-x left bottom;
+            line-height: 28px;
+            border-bottom: 1px solid #9cb6cf;
+            border-top: 1px solid #e9edf3;
+            font-weight: normal;
+            text-shadow: #e6ecf3 1px 1px 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .t1 tr td
+        {
+            border-bottom: 1px solid #e9e9e9;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            color: #444;
+            border-top: 1px solid #FFFFFF;
+            padding-left: 5px;
+            padding-right: 5px;
+            word-break: break-all;
+        }
+        tr.alt td
+        {
+            background: #ecf6fc;
+        }
+        tr.over td
+        {
+            background: #bcd4ec;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {  
+            $(".t1 tr").mouseover(function () { 
+                $(this).addClass("over");
+            }).mouseout(function () { 
+                $(this).removeClass("over");
+            })
+            $(".t1 tr:even").addClass("alt");
+        });
+    </script>
 </head>
 
 <body>
 
 
-<h1 align="center">Cars</h1>
+<h1 align="center" style = "color: gray; font-family: Courier New;">Cars List</h1>
 <br>
-	<table width='80%' border=0 align="center">
+    <form id="form1" runat="server">
+	<table width="80%" id="ListArea" border="0" class="t1" align="center">
 
-	<tr bgcolor='#CCCCCC'>
+	<tr align="center">
 		<td>Vin</td>
 		<td>Model</td>
 		<td>Make</td>
@@ -31,7 +81,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM Cars ORDER BY Vin DESC");
 	<?php 
 	
 	while($res = mysqli_fetch_array($result)) { 		
-		echo "<tr>";
+		echo "<tr align='center'>";
 		// '.' is a string operator that concatenate arguments on both of its two sides
 		echo "<td>".$res['Vin']."</td>";
 		echo "<td>".$res['Model']."</td>";
@@ -57,17 +107,12 @@ $result = mysqli_query($mysqli, "SELECT * FROM Cars ORDER BY Vin DESC");
 	}
 	?>
 	</table>
-
-	<form action="add.html" style="text-align: center;">
-		<input type="submit" value="Enter new data">
-
-	</form>
-
-	<form action="search.php" style="text-align: center;">
-		<input type="submit" value="search for data">
-
-	</form>
-
-
+ </form>
+	
+<br><br><br>
+	<div id = "back" style = "text-align: center;">
+		<a href="index.html"> Back </a>
+	</div>
+	
 </body>
 </html>
