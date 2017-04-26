@@ -120,3 +120,9 @@ INSERT INTO Sellers(Ssn, Fname, Minit, Lname, Sex, Phone, Address) VALUES ("6666
 
 INSERT INTO Buyers(Ssn, Fname, Minit, Lname, Sex, Phone, Address) VALUES ("987987987", "Ahmad", "V", "Jabbar", "m", "987654321", "980 Dallas, Houston, TX");
 INSERT INTO Buyers(Ssn, Fname, Minit, Lname, Sex, Phone, Address) VALUES ("453453453", "Justin", "N", "Mark", "m", "333445555", "521 Voss, Houston, TX");
+
+INSERT INTO Buy(Vin, S_ssn, In_id, Price_in, In_date) VALUES ("66666660222222222", "666666608", 1, 10000, "2017-04-20");
+INSERT INTO Buy(Vin, S_ssn, In_id, Price_in, In_date) VALUES ("66666660222211111", "666666609", 2, 9000, "2017-04-21");
+
+INSERT INTO Sell(Vin, B_ssn, Out_id, In_id, Price_out, Out_date) VALUES ("66666660222222222", "987987987", 1, 1, 13000, "2017-04-24");
+INSERT INTO Sell(Vin, B_ssn, Out_id, In_id, Price_out, Out_date) VALUES ("66666660222211111", "453453453", 2, 2, 12000, "2017-04-25");
