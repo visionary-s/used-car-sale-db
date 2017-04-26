@@ -41,6 +41,7 @@ while($res = mysqli_fetch_array($result))
 	$Fname = $res['Fname'];
 	$Minit = $res['Minit'];
 	$Lname = $res['Lname'];
+	$Address = $res['Address'];
 	$Sex = $res['Sex'];
 	$Phone = $res['Phone'];
 	$Branch_no = $res['Branch_no'];
@@ -71,6 +72,10 @@ while($res = mysqli_fetch_array($result))
 			<tr> 
 				<td>Lname</td>
 				<td><input type="text" name="Lname" value="<?php echo $Lname;?>" required></td>
+			</tr>
+			<tr> 
+				<td>Address</td>
+				<td><input type="text" name="Address" value="<?php echo $Address;?>" required></td>
 			</tr>
 			<tr> 
 				<td>Sex</td>
