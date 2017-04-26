@@ -57,7 +57,7 @@ while($res = mysqli_fetch_array($result))
 		<table border="0">
 			<tr> 
 				<td>Vin</td>
-				<td><input type="text" name="Vin" value="<?php echo $Vin;?>" required></td>
+				<td><input type="text" name="Vin" value="<?php echo $Vin;?>" readonly="readonly"></td>
 			</tr>
 			<tr> 
 				<td>Model</td>
