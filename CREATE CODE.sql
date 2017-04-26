@@ -76,8 +76,8 @@ CREATE TABLE Sell(
 	FOREIGN KEY (Vin) REFERENCES Cars(Vin),
 	FOREIGN KEY (B_ssn) REFERENCES Buyers(Ssn),
 	FOREIGN KEY (In_id) REFERENCES Buy(In_id),
-	Price_out DECIMAL(10,2),
-	Out_date DATE,
+	Price_out DECIMAL(10,2) NOT NULL,
+	Out_date DATE NOT NULL,
 	PRIMARY KEY(Out_id)
 );
 
