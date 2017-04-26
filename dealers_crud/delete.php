@@ -3,10 +3,10 @@
 include("config.php");
 
 //getting id of the data from url
-$Id = $_GET['Id'];
+$Vin = $_GET['Vin'];
 
 //deleting the row from table
-$result = mysqli_query($mysqli, "DELETE FROM dealers WHERE Id=$Id");
+$result = mysqli_query($mysqli, "DELETE FROM Cars WHERE Vin=$Vin");
 
 //redirecting to the display page (index.php in our case)
 header("Location:index.php");

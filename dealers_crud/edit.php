@@ -5,21 +5,20 @@ include_once("config.php");
 if(isset($_POST['update']))
 {	
 
-	$Id = mysqli_real_escape_string($mysqli, $_POST['Id']);
+	$Vin = mysqli_real_escape_string($mysqli, $_POST['Vin']);
 	
-	$Fname = mysqli_real_escape_string($mysqli, $_POST['Fname']);
-	$Minit = mysqli_real_escape_string($mysqli, $_POST['Minit']);
-	$Lname = mysqli_real_escape_string($mysqli, $_POST['Lname']);
-	$Address = mysqli_real_escape_string($mysqli, $_POST['Address']);
-	$Sex = mysqli_real_escape_string($mysqli, $_POST['Sex']);
-	$Phone = mysqli_real_escape_string($mysqli, $_POST['Phone']);	
-	$Branch_no = mysqli_real_escape_string($mysqli, $_POST['Branch_no']);		
+	$Model = mysqli_real_escape_string($mysqli, $_POST['Model']);
+	$Make = mysqli_real_escape_string($mysqli, $_POST['Make']);
+	$Year = mysqli_real_escape_string($mysqli, $_POST['Year']);
+	$Mileage = mysqli_real_escape_string($mysqli, $_POST['Mileage']);
+	$Bno = mysqli_real_escape_string($mysqli, $_POST['Bno']);
+	$Rrp = mysqli_real_escape_string($mysqli, $_POST['Rrp']);		
 	
 		
 		mysqli_query($mysqli,"DELETE FROM branch WHERE Branch_no='$Branch_no");
 		//updating the table
 		mysqli_query($mysqli,"INSERT INTO branch(Bno) VALUES ('$Branch_no')");
-		$result = mysqli_query($mysqli, "UPDATE dealers SET Fname='$Fname',Minit='$Minit',Lname='$Lname',Address='$Address',Sex='$Sex',Phone='$Phone',Branch_no='$Branch_no' WHERE Id=$Id");
+		$result = mysqli_query($mysqli, "UPDATE Cars SET Vin='$Vin',Model='$Model',Make='$Make',Year='$Year',Mileage='$Mileage',Bno='$Bno',Rrp='$Rrp' WHERE Vin=$Vin");
 		
 		//redirectig to the display page. In our case, it is index.php
 		header("Location: index.php");
@@ -28,23 +27,22 @@ if(isset($_POST['update']))
 ?>
 <?php
 //getting id from url
-$Id = $_GET['Id'];
+$Vin = $_GET['Vin'];
 
 //selecting data associated with this particular id
-$result = mysqli_query($mysqli, "SELECT * FROM dealers WHERE Id=$Id");
+$result = mysqli_query($mysqli, "SELECT * FROM Cars WHERE Vin=$Vin");
 
 
 while($res = mysqli_fetch_array($result))
 
 {	
-	$Id=$res['Id'];
-	$Fname = $res['Fname'];
-	$Minit = $res['Minit'];
-	$Lname = $res['Lname'];
-	$Address = $res['Address'];
-	$Sex = $res['Sex'];
-	$Phone = $res['Phone'];
-	$Branch_no = $res['Branch_no'];
+	$Vin=$res['Vin'];
+	$Model = $res['Model'];
+	$Make = $res['Make'];
+	$Year = $res['Year'];
+	$Mileage = $res['Mileage'];
+	$Bno = $res['Bno'];
+	$Rrp = $res['Rrp'];
 }
 
 ?>
@@ -58,39 +56,36 @@ while($res = mysqli_fetch_array($result))
 	<form name="form1" method="POST" action="edit.php">
 		<table border="0">
 			<tr> 
-				<td>Id</td>
-				<td><input type="text" name="Id" value="<?php echo $Id;?>" required></td>
+				<td>Vin</td>
+				<td><input type="text" name="Vin" value="<?php echo $Vin;?>" required></td>
 			</tr>
 			<tr> 
-				<td>Fname</td>
-				<td><input type="text" name="Fname" value="<?php echo $Fname;?>" required></td>
+				<td>Model</td>
+				<td><input type="text" name="Model" value="<?php echo $Model;?>" required></td>
 			</tr>
 			<tr> 
-				<td>Minit</td>
-				<td><input type="text" name="Minit" value="<?php echo $Minit;?>" ></td>
+				<td>Make</td>
+				<td><input type="text" name="Make" value="<?php echo $Make;?>" required></td>
 			</tr>
 			<tr> 
-				<td>Lname</td>
-				<td><input type="text" name="Lname" value="<?php echo $Lname;?>" required></td>
+				<td>Year</td>
+				<td><input type="text" name="Year" value="<?php echo $Year;?>" required></td>
 			</tr>
 			<tr> 
-				<td>Address</td>
-				<td><input type="text" name="Address" value="<?php echo $Address;?>" required></td>
+				<td>Mileage</td>
+				<td><input type="text" name="Mileage" value="<?php echo $Mileage;?>" required></td>
 			</tr>
 			<tr> 
-				<td>Sex</td>
-				<td><input type="text" name="Sex" value="<?php echo $Sex;?>" required></td>
+				<td>Bno</td>
+				<td><input type="text" name="Bno" value="<?php echo $Bno;?>" required></td>
 			</tr>
 			<tr> 
-				<td>Phone</td>
-				<td><input type="text" name="Phone" value="<?php echo $Phone;?>" required></td>
+				<td>Rrp</td>
+				<td><input type="text" name="Rrp" value="<?php echo $Rrp;?>" required></td>
 			</tr>
-			<tr> 
-				<td>Branch_no</td>
-				<td><input type="text" name="Branch_no" value="<?php echo $Branch_no;?>" required></td>
-			</tr>
+			
 			<tr>
-				<td><input type="hidden" name="Id" value=<?php echo $_GET['Id'];?>></td>
+				<td><input type="hidden" name="Vin" value=<?php echo $_GET['Vin'];?>></td>
 				<td><input type="submit" name="update" value="Update"></td>
 			</tr>
 		</table>

@@ -21,14 +21,13 @@
         
         <label>Search Category:
             <select name="category">
-                <option value="Id">Id</option>
-                <option value="Fname">Fname</option>
-                <option value="Minit">Minit</option>
-                <option value="Lname">Lname</option>
-                <option value="Address">Lname</option>
-                <option value="Sex">Sex</option>
-                <option value="Phone">Phone</option>
-                <option value="Branch_no">Phone</option>     
+                <option value="Vin">Vin</option>
+                <option value="Model">Model</option>
+                <option value="Make">Make</option>
+                <option value="Year">Year</option>
+                <option value="Mileage">Mileage</option>
+                <option value="Bno">Bno</option>
+                <option value="Rrp">Rrp</option>    
             </select>
         </label>
         
@@ -46,30 +45,28 @@
         
         $category = $_POST['category'];
         $criteria = $_POST['criteria'];
-        $query = "SELECT * FROM dealers WHERE $category = '$criteria'";
+        $query = "SELECT * FROM Cars WHERE $category = '$criteria'";
         $result = mysqli_query($mysqli, $query) or die('error getting data');
         
         echo "<table>";
-        echo "<tr><th>Id</th><th>Fname</th><th>Minit</th><th>Lname</th><th>Address</th><th>Sex</th><th>Phone</th><th>Branch_no</th></tr>";
+        echo "<tr><th>Vin</th><th>Model</th><th>Make</th><th>Year</th><th>Mileage</th><th>Bno</th><th>Rrp</th></tr>";
         
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
             
             echo "<tr><td>";
-            echo $row['Id'];
+            echo $row['Vin'];
             echo "</td><td>";
-            echo $row['Fname'];
+            echo $row['Model'];
             echo "</td><td>";
-            echo $row['Minit'];
+            echo $row['Make'];
             echo "</td><td>";
-            echo $row['Lname'];
+            echo $row['Year'];
             echo "</td><td>";
-            echo $row['Address'];
+            echo $row['Mileage'];
             echo "</td><td>";
-            echo $row['Sex'];
+            echo $row['Bno'];
             echo "</td><td>";
-            echo $row['Phone'];
-            echo "</td><td>";
-            echo $row['Branch_no'];
+            echo $row['Rrp'];
             echo "</td><tr>";
             
         }
