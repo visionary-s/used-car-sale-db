@@ -10,6 +10,7 @@ if(isset($_POST['update']))
 	$Fname = mysqli_real_escape_string($mysqli, $_POST['Fname']);
 	$Minit = mysqli_real_escape_string($mysqli, $_POST['Minit']);
 	$Lname = mysqli_real_escape_string($mysqli, $_POST['Lname']);
+	$Address = mysqli_real_escape_string($mysqli, $_POST['Address']);
 	$Sex = mysqli_real_escape_string($mysqli, $_POST['Sex']);
 	$Phone = mysqli_real_escape_string($mysqli, $_POST['Phone']);	
 	$Branch_no = mysqli_real_escape_string($mysqli, $_POST['Branch_no']);		
@@ -18,7 +19,7 @@ if(isset($_POST['update']))
 		mysqli_query($mysqli,"DELETE FROM branch WHERE Branch_no='$Branch_no");
 		//updating the table
 		mysqli_query($mysqli,"INSERT INTO branch(Bno) VALUES ('$Branch_no')");
-		$result = mysqli_query($mysqli, "UPDATE dealers SET Fname='$Fname',Minit='$Minit',Lname='$Lname',Sex='$Sex',Phone='$Phone',Branch_no='$Branch_no' WHERE Id=$Id");
+		$result = mysqli_query($mysqli, "UPDATE dealers SET Fname='$Fname',Minit='$Minit',Lname='$Lname',Address='$Address',Sex='$Sex',Phone='$Phone',Branch_no='$Branch_no' WHERE Id=$Id");
 		
 		//redirectig to the display page. In our case, it is index.php
 		header("Location: index.php");

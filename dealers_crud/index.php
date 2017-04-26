@@ -23,6 +23,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM dealers ORDER BY Id DESC");
 		<td>Fname</td>
 		<td>Minit</td>
 		<td>Lname</td>
+		<td>Address</td>
 		<td>Sex</td>
 		<td>Phone</td>
 		<td>Branch_no</td>
@@ -37,6 +38,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM dealers ORDER BY Id DESC");
 		echo "<td>".$res['Fname']."</td>";
 		echo "<td>".$res['Minit']."</td>";
 		echo "<td>".$res['Lname']."</td>";
+		echo "<td>".$res['Address']."</td>";
 		echo "<td>".$res['Sex']."</td>";
 		echo "<td>".$res['Phone']."</td>";	
 		echo "<td>".$res['Branch_no']."</td>";	

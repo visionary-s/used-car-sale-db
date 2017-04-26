@@ -25,6 +25,7 @@
                 <option value="Fname">Fname</option>
                 <option value="Minit">Minit</option>
                 <option value="Lname">Lname</option>
+                <option value="Address">Lname</option>
                 <option value="Sex">Sex</option>
                 <option value="Phone">Phone</option>
                 <option value="Branch_no">Phone</option>     
@@ -49,7 +50,7 @@
         $result = mysqli_query($mysqli, $query) or die('error getting data');
         
         echo "<table>";
-        echo "<tr><th>Id</th><th>Fname</th><th>Minit</th><th>Lname</th><th>Sex</th><th>Phone</th></tr>";
+        echo "<tr><th>Id</th><th>Fname</th><th>Minit</th><th>Lname</th><th>Address</th><th>Sex</th><th>Phone</th><th>Branch_no</th></tr>";
         
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
             
@@ -57,10 +58,12 @@
             echo $row['Id'];
             echo "</td><td>";
             echo $row['Fname'];
-            echo "</td><td style='text-align:right'>";
+            echo "</td><td>";
             echo $row['Minit'];
             echo "</td><td>";
             echo $row['Lname'];
+            echo "</td><td>";
+            echo $row['Address'];
             echo "</td><td>";
             echo $row['Sex'];
             echo "</td><td>";
